@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+from modules.activity_generator import *
 
 class Segment(ttk.Frame):
     def __init__(self, parent, label_text, button_text):
@@ -20,7 +21,7 @@ class Segment(ttk.Frame):
             ).grid(row=0, column=0, sticky='nsew')
         ttk.Button(
             self, text=button_text,
-            style='Button.TButton'
+            style='Button.TButton', command=self.fetch_and_display_activities
             ).grid(row=1, column=0, sticky='nsew')
 
         self.results_box = tk.Text(self, wrap=tk.WORD)
@@ -28,3 +29,8 @@ class Segment(ttk.Frame):
 
 
         self.pack(padx=50, pady=50)
+
+    def fetch_and_display_activities(self):
+        activities = fetch_random_activity()
+        results = show_activities(activities)
+        update_text_widget(self.results_box, results)
