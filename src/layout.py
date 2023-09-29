@@ -23,5 +23,8 @@ class Segment(ttk.Frame):
             style='Button.TButton'
             ).grid(row=1, column=0, sticky='nsew')
 
+        self.results_box = tk.Text(self, wrap=tk.WORD)
+        self.results_box.grid(row=2, column=0, columnspan=2, sticky='news')
+
 
         self.pack(padx=50, pady=50)

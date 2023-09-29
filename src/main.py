@@ -5,7 +5,9 @@ from layout import Segment
 # window
 window = tk.Tk()
 window.title('KillBore v1.0')
-window.geometry('450x500')
+window.geometry('400x550')
+window.minsize(width=400, height=550)
+window.maxsize(width=400, height=550)
 
 # widgets
 Segment(window,
